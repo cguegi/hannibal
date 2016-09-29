@@ -3,7 +3,6 @@ import sbt._
 import Keys._
 import java.lang.System._
 import play.Play.autoImport._
-import PlayKeys._
 
 object ApplicationBuild extends Build {
 
