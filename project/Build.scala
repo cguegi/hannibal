@@ -14,7 +14,7 @@ object ApplicationBuild extends Build {
       if(Seq("0.90", "0.92", "0.94", "0.96", "0.98", "1.00").contains(getenv("HANNIBAL_HBASE_VERSION")))
         getenv("HANNIBAL_HBASE_VERSION")
       else
-        "0.90"
+        "1.1.2"
 
     println("Configuring for HBase Version: %s".format(hBaseVersion))
 
@@ -53,6 +53,11 @@ object ApplicationBuild extends Build {
         "org.apache.hbase" % "hbase-common" % "1.0.0",
         "org.apache.hbase" % "hbase-client" % "1.0.0"
       )
+      case "1.1.2" => Seq(
+        "org.apache.hadoop" % "hadoop-common" % "2.7.1",
+        "org.apache.hbase" % "hbase-common" % "1.1.2",
+        "org.apache.hbase" % "hbase-client" % "1.1.2"
+      )
     })
 
     val projectSettings = Seq(
@@ -63,19 +68,19 @@ object ApplicationBuild extends Build {
     	</dependencies>
     )
 
-      val hBaseSourceDirectory = (hBaseVersion match {
-      case "0.90" => "hbase/0.90/scala"
-      case "0.92" => "hbase/0.92/scala"
-      case "0.94" => "hbase/0.92/scala"
-      case _ => "hbase/0.96/scala"
-    })
+      val hBaseSourceDirectory = hBaseVersion match {
+        case "0.90" => "hbase/0.90/scala"
+        case "0.92" => "hbase/0.92/scala"
+        case "0.94" => "hbase/0.92/scala"
+        case _ => "hbase/0.96/scala"
+      }
 
 
     val main = Project(appName, file(".")).enablePlugins(play.PlayScala, SbtWeb).settings(
 
       version := appVersion,
 
-      scalaVersion := "2.11.1",
+      scalaVersion := "2.11.7",
 
       libraryDependencies ++= appDependencies,
 
