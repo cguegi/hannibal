@@ -26,7 +26,8 @@ class @RickshawUtil
       oldRender = @render
       @render = ->
         oldRender.apply(@)
-        @vis.selectAll('text').attr('text-anchor', 'start')
+        #@vis.selectAll('text').attr('text-anchor', 'start')
+        @vis.selectAll('text').style("text-anchor", "end").attr("dx", "-.8em").attr("dy", ".15em").attr("transform", "rotate(-65)" )
 
   class @InteractiveHoverDetail extends Rickshaw.Graph.HoverDetail
     initialize: (args) ->
