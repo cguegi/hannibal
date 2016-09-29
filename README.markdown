@@ -222,7 +222,5 @@ With help from:
  [Alexandre Normand]: https://github.com/alexandre-normand
  [churrodog]: https://github.com/churrodog
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/51d84bade798b5b08bd69a6704be9315 "githalytics.com")](http://githalytics.com/sentric/hannibal)
-
 [conf/application.conf]: blob/master/conf/application.conf
 
