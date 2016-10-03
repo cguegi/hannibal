@@ -24,7 +24,8 @@ case class Region(val regionServer: RegionServer, val regionLoad: RegionLoad) {
   val parsedRegionName  = RegionName(regionName)
 
   val serverName        = regionServer.serverName
-  val serverHostName    = regionServer.hostName
+  //val serverHostName    = regionServer.hostName
+  val serverHostName    = regionServer.hostName.split("\\.")(0)
   val serverPort        = regionServer.port
   val serverInfoPort    = regionServer.infoPort
 
